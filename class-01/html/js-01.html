@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移入、移出事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* 重置列表元素 */
+        ul, ol, li { list-style: none; }
+        a{color:#333;}
+        /* 重置文本格式元素 */
+        a { text-decoration: none; }
+        .ul{
+            margin: 100px;
+        }
+        .lis a{
+            display: block;
+            width: 100px;
+            height: 45px;
+            text-align: center;
+            line-height: 45px;
+            border: 1px solid rosybrown;
+            background: yellowgreen;
+        }
+        .lis ul{
+            display: none;
+            width: 150px;
+            text-align: center;
+            border: 1px solid royalblue;
+        }
+        .lis ul li{
+            height: 45px;
+            line-height: 45px;
+            background: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+<ul class="ul">
+    <li id="lis" class="lis">
+        <a href="#" id="link">微博</a>
+        <ul id="ul1">
+            <li>私信</li>
+            <li>评论</li>
+            <li>@我</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var li =  document.getElementById('lis');
+    var ul = document.getElementById('ul1');
+    var a = document.getElementById('link');
+
+    li.onmouseover = show;
+    li.onmouseout = hide;
+
+    function show() {
+        ul.style.display = 'block';
+        a.style.background = 'yellow';
+    }
+
+    function hide() {
+        ul.style.display = 'none';
+        a.style.background = 'yellow';
+    }
+
+
+</script>
+</body>
+</html>

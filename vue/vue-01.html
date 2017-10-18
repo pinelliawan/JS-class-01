@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>例一</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="input1">
+    <input type="text"/>
+    <button v-on:click="reverseMessage">+</button>
+</div>
+<script>
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+</body>
+</html>

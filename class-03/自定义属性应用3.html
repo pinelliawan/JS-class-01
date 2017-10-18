@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义属性-3</title>
+    <style>
+        input{
+            width: 50px;
+            height: 50px;
+            margin-left: 40px;
+            background: #000;
+            color: #fff;
+            font-size: 20px;
+            border: 1px solid #fff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var aBtn = document.getElementsByTagName('input');   //找到input元素
+            var arr = ['1','2','3','4','5','6','7','8','9','0']; //定义数组、可是是图片、文字、数字等
+
+            for(var i = 0; i<aBtn.length; i++){  //for循环
+                aBtn[i].num = 0;                  //自定义属性 num
+                aBtn[i].onclick = function () {  //按钮点击事件
+
+                    this.value = arr[this.num];  //input的值等于数组的值
+
+                    this.num++;                   //慢慢增加
+                    if( this.num === arr.length ){  //超过数组长度就重头开始，回到num = 0;
+                        this.num = 0;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="0"/>
+<input type="button" value="0"/>
+<input type="button" value="0"/>
+</body>
+</html>

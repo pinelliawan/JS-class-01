@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换实例</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            background: #333;
+        }
+        .pic{margin: 30px auto;width: 600px; height: 840px; position: relative;}
+        .pic img{width: 600px; height: 840px;}
+        .pic ul{
+            list-style: none;
+            position: absolute;
+            top: 0;
+            right: -80px;
+        }
+        .pic ul li{
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        .pic .active{
+            background: yellow;
+        }
+        .pic span{
+            position: absolute;
+            top: 0;
+            width: 600px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #000;
+            color: #fff;
+        }
+        .pic p{
+            position: absolute;
+            bottom: 0;
+            width: 600px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background: #000;
+            color: #fff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('pic');
+            var oImg = oDiv.getElementsByTagName('img')[0];
+            var oSpan = oDiv.getElementsByTagName('span')[0];
+            var oP = oDiv.getElementsByTagName('p')[0];
+            var oUl = oDiv.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li');
+
+            var arrUrl = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+            var arrText = ['刹那回眸','垂首','翘首','三千鸦杀'];
+            var num = 0;
+           /* var oldLi = null;*/   //思路二
+
+            for(var i=0; i<arrUrl.length; i++){
+                oUl.innerHTML +='<li></li>';
+            }
+
+           /* oldLi = aLi[num];*/   //思路二
+
+            //初始化
+            function fnTab() {
+                oImg.src = arrUrl[num];
+                oSpan.innerHTML = 1+num+'/'+arrUrl.length;
+                oP.innerHTML = arrText[num];
+                for(var i=0; i<aLi.length; i++){
+                    aLi[i].className = '';
+                }
+                aLi[num].className = 'active';
+            }
+            fnTab();
+
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].index = i;  //索引值
+                aLi[i].onclick = function () {
+                    num = this.index;
+                    fnTab();//函数调用
+
+                   /* oImg.src = arrUrl[num];
+                    oP.innerHTML = arrText[num];
+                    oSpan.innerHTML =1+ num+'/'+arrText.length;
+
+                    //思路一：全部清空，当前添加
+                    for(var i=0; i<aLi.length; i++){
+                        aLi[i].className = '';
+                    }
+                    this.className = 'active';
+*/
+                    /*//思路二：清空上个，当前添加
+                    oldLi.className = '';
+                    oldLi = this;
+                    this.className = 'active';*/
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="pic" id="pic">
+    <img src="img/1.jpg">
+    <span>数量加载中。。。</span>
+    <p>正在加载中。。。</p>
+    <ul></ul>
+</div>
+</body>
+</html>

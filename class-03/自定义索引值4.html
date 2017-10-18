@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>索引值、匹配、对应</title>
+    <style>
+        input{
+            width: 80px;
+            height: 80px;
+            margin-left: 40px;
+            background: #000;
+            color: #fff;
+            font-size: 20px;
+            border: 1px solid #fff;
+        }
+        p{
+            margin-left: 40px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var aBtn = document.getElementsByTagName('input');
+            var aP = document.getElementsByTagName('p');
+
+            //想建立匹配、对应关系，就用索引值
+            var arr = ['阿邹','阿婉','阿秋'];
+
+            for(var i=0;i<aBtn.length; i++){
+               aBtn[i].index = i;
+
+               aBtn[i].onclick = function () {
+                   this.value = arr[ this.index ];
+
+                   aP[ this.index ].innerHTML = arr[ this.index ];
+               }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="btn0"/>
+    <input type="button" value="btn1"/>
+    <input type="button" value="btn2"/>
+
+    <p>a</p>
+    <p>b</p>
+    <p>c</p>
+</body>
+</html>

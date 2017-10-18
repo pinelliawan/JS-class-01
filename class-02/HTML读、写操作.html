@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML属性操作</title>
+    <script>
+        window.onload = function () {
+            var oText = document.getElementById('text1');
+            var oBtn = document.getElementById('btn1');
+            var oP = document.getElementById('p1');
+            //var oSelect = document.getElementById('select1');
+
+            oBtn.onclick = function () {
+                //alert( oText.value + oSelect.value); 字符串加在一起显示；
+
+                oP.innerHTML = oText.value;
+                oText.value = ''
+            }
+        }
+    </script>
+
+    <style>
+        .div1{
+            width: 300px;
+            height: 200px;
+            border: 4px solid salmon;
+        }
+    </style>
+</head>
+<body>
+<input id="text1" type="text"/>
+<!--<select id="select1">
+    <option value="北京">北京</option>
+    <option value="上海">上海</option>
+    <option value="杭州">杭州</option>
+</select>-->
+<input id="btn1" type="button" value="按钮"/>
+<p id="p1">大家晚上好----</p>
+
+
+<!------------------>
+<div id="div1" class="div1"></div>
+<span id="span1">婉秋：</span>
+<input id="text2" type="text"/>
+<input id="btn2" type="button" value="提交"/>
+
+<script>
+    var oDiv = document.getElementById('div1');
+    var oSpan = document.getElementById('span1');
+    var oText2 = document.getElementById('text2');
+    var oBtn2 = document.getElementById('btn2');
+
+    oBtn2.onclick = function () {
+        oDiv.innerHTML += oSpan.innerHTML + oText2.value + '<br/>'
+        oText2.value = ''
+    }
+</script>
+</body>
+</html>

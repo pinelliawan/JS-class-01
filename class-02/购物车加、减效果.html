@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车加、减效果</title>
+    <script>
+        window.onload = function () {
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+            var oText = document.getElementById('text');
+            var num = 1;
+
+            oBtn1.onclick = function () {
+                num --;
+                oText.value = num;
+            };
+            oBtn2.onclick = function () {
+                num ++;
+                oText.value = num;
+            };
+        }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="-"/>
+<input id="text" type="text" value="1"/>
+<input id="btn2" type="button" value="+"/>
+</body>
+</html>

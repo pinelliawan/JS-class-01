@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #content{
+            margin: 80px auto 0;
+            width: 500px;
+            height: 350px;
+            border: 8px solid salmon;
+            position: relative;
+        }
+        #content a{
+            text-decoration: none;
+            font-size: 40px;
+            color: cornflowerblue;
+            position: absolute;
+            top: 45%;
+        }
+        #content span{
+            position: absolute;
+            bottom: 0;
+            left: 48%;
+            color: #fff;
+        }
+        #content p{
+            position: absolute;
+            top: 0;
+            left: 48%;
+        }
+        #prev{
+            left: 10px;
+        }
+        #next{
+            right: 10px;
+        }
+        #img1{
+            width: 500px;
+            height: 350px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oPrev = document.getElementById('prev');
+            var oNext = document.getElementById('next');
+            var oText = document.getElementById('text');
+            var oSpan = document.getElementById('span1');
+            var oImg = document.getElementById('img1');
+
+            var arrUrl = ['images/img1.jpeg','images/img2.jpeg','images/img3.jpeg','images/img4.jpeg']
+            var arrText = ['背影','长剑','魅惑','月色']
+
+            var num = 0;
+            //初始化
+            function fnTab() {
+                oSpan.innerHTML = num+1 + '/'+ arrText.length;
+                oImg.src = arrUrl[num];
+                oText.innerHTML = arrText[num];
+            }
+            fnTab();
+
+            oPrev.onclick = function () {
+                num--;
+                if( num == -1){
+                    num = arrText.length-1;
+                }
+                fnTab();
+            }
+
+            oNext.onclick = function () {
+                num++;
+                if( num == arrText.length){
+                    num = 0
+                }
+                fnTab();
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="content">
+    <a id="prev" href="javascript:;"> < </a>
+    <a id="next" href="javascript:;"> > </a>
+    <p id="text">数量正在加载中...</p>
+
+    <span id="span1">图片文字正在加载中...</span>
+    <img id="img1">
+</div>
+</body>
+</html>
